@@ -9,7 +9,7 @@ Allows you to add from an existing item to your shopping cart and updates your t
 *   Update item amount
 *   Unique ID for your cart
 *   Actions denied if shop is closed
-*   Actions oeprated through mock API
+*   Actions operated through mock API
 *   Add your own products
 
 Available live at: [Here](http://roilan.net/app/cart/)

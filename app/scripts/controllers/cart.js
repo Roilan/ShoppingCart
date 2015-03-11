@@ -9,10 +9,15 @@
  */
 angular.module('shoppingCartApp')
   .controller('ShoppingCartController', function ($scope) {
+    // log
+    $scope.log = function() {
+      console.log($scope.cartItems);
+    };
+
     // cart status - currently static
     $scope.status = 'Open';
 
-    // cart items
+    // product items
     $scope.items = [
       {
         name: 'item1',
@@ -30,4 +35,12 @@ angular.module('shoppingCartApp')
         price: 11.01
       }
     ];
+
+    // cart items
+    $scope.cartItems = [];
+
+    // pushes item into the cart
+    $scope.addToCart = function(item) {
+      $scope.cartItems.push(item);
+    };
   });

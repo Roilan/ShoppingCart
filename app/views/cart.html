@@ -17,10 +17,34 @@
       <li class="row list-inline items-row" ng-repeat="item in items">
         <span class="itemAmt">{{item.amount}}</span>
         <span class="itemName">{{item.name}}</span>
-        <button class="btn btn-primary btn-sm btn-cart">Add</button>
+        <button ng-click="addToCart(item)" class="btn btn-primary btn-sm btn-cart">Add</button>
         <span class="itemPrice">${{item.price}}</span>
       </li>
     </ul>
 
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-left">
+
+    <h4 class="text-center">Shopping Cart</h4>
+
+    <ul>
+
+      <li class="row list-inline items-row" ng-repeat="cartItem in cartItems">
+        <span class="itemAmt">{{cartItem.amount}}</span>
+        <span class="itemName">{{cartItem.name}}</span>
+        <button class="btn btn-primary btn-sm btn-cart">Update</button>
+        <span class="itemPrice">${{cartItem.price}}</span>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-danger" ng-click="log()">Log</button>
   </div>
 </div>

@@ -15,7 +15,7 @@
       </li>
 
       <li class="row list-inline items-row" ng-repeat="item in items">
-        <span class="itemAmt">{{item.amount}}</span>
+        <input type="number" class="itemAmt" value="{{item.amount}}" ng-model="item.amount"/>
         <span class="itemName">{{item.name}}</span>
         <button ng-click="addToCart(item)" class="btn btn-primary btn-sm btn-cart">Add</button>
         <span class="itemPrice">${{item.price}}</span>

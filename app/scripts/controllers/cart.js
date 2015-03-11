@@ -21,17 +21,17 @@ angular.module('shoppingCartApp')
     $scope.items = [
       {
         name: 'item1',
-        amount: 10,
+        amount: 0,
         price: 9.99
       },
       {
         name: 'item2',
-        amount: 5,
+        amount: 0,
         price: 10.99
       },
       {
         name: 'item3',
-        amount: 100,
+        amount: 0,
         price: 11.01
       }
     ];

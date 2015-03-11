@@ -8,10 +8,8 @@
  * Controller of the shoppingCartApp
  */
 angular.module('shoppingCartApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ShoppingCartController', function ($scope) {
+
+    $scope.name = 'working';
+
   });

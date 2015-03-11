@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <base href="/"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -23,13 +24,13 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#">Shop</a></li>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="cart">Shop</a></li>
         </ul>
         <h3 class="text-muted">Angular Shopping Cart</h3>
       </div>
 
-      <!--<div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>-->
+      <div ui-view></div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
@@ -66,7 +67,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/cart.js"></script>
         <!-- endbuild -->
 </body>
 </html>

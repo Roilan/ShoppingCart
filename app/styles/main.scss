@@ -1,3 +1,10 @@
+$lightblue: #4ea6bc;
+
+
+body {
+  background-color: #f2f6f9 !important;
+}
+
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
@@ -89,4 +96,53 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+// cart
+.item-title {
+  color: black;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  opacity: 0.8;
+
+  span {
+    &:first-child {
+      padding-right: 68px;
+    }
+
+    &:last-child {
+      float: right;
+    }
+
+  }
+}
+
+.items-row {
+  box-shadow: 0 1px 0 #e1e5e8;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  margin-bottom: 11px;
+}
+
+.itemAmt {
+  color: $lightblue;
+  font-size: 18px;
+  font-weight: bold;
+  float: left;
+  width: 15%;
+}
+
+.itemName {
+  color: $lightblue;
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+}
+
+.itemPrice {
+  color: $lightblue;
+  font-size: 18px;
+  font-weight: bold;
+  float: right;
 }

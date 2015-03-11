@@ -1,1 +1,25 @@
-<h1>Hello {{name}}</h1>
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h4>Status: {{status}}</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-left">
+
+    <ul>
+      <li class="row list-inline item-title">
+        <span>Amt</span>
+        <span>Name</span>
+        <span>Price</span>
+      </li>
+
+      <li class="row list-inline items-row" ng-repeat="item in items">
+        <span class="itemAmt">{{item.amount}}</span>
+        <span class="itemName">{{item.name}}</span>
+        <span class="itemPrice">${{item.price}}</span>
+      </li>
+    </ul>
+
+  </div>
+</div>

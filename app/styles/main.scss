@@ -1,4 +1,5 @@
 $lightblue: #4ea6bc;
+$bs-red: #d43f3a;
 
 
 body {
@@ -159,4 +160,14 @@ body {
   font-size: 14px;
   width: 70px;
   margin-top: -2px;
+}
+
+.btn-cart-remove {
+  @extend .btn-cart;
+  background-color: $bs-red;
+  margin-left: 5px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }

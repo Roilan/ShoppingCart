@@ -20,17 +20,17 @@ angular.module('shoppingCartApp')
     // product items
     $scope.items = [
       {
-        name: 'item1',
+        name: 'Food',
         amount: 0,
         price: 9.99
       },
       {
-        name: 'item2',
+        name: 'Accessories',
         amount: 0,
         price: 10.99
       },
       {
-        name: 'item3',
+        name: 'Care',
         amount: 0,
         price: 11.01
       }
@@ -39,8 +39,18 @@ angular.module('shoppingCartApp')
     // cart items
     $scope.cartItems = [];
 
+    // clear cart items
+    $scope.clearCartItems = function() {
+      $scope.cartItems = [];
+    };
+
     // pushes item into the cart
     $scope.addToCart = function(item) {
       $scope.cartItems.push(item);
+    };
+
+    // removes item from cartItems array
+    $scope.removeCartItem = function($index) {
+      $scope.cartItems.splice($index, 1);
     };
   });

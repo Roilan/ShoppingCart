@@ -34,7 +34,7 @@ angular.module('shoppingCartApp')
       {
         name: 'Care',
         amount: 0,
-        price: 11.01,
+        price: 11.99,
         totalprice: 0
       }
     ];
@@ -54,14 +54,19 @@ angular.module('shoppingCartApp')
     };
 
     // updates item price in cart
-    $scope.updateItemPrice = function(item, $index) {
-      $scope.cartItems[$index].totalprice = $scope.calculateItemTotal(item);
+    $scope.updateItemPrice = function(item) {
+      // using $index caused an error if items were added out of order
+      // when price was removed and re-added/updated
+      // to avoid this, grabs the index of the current item
+      var itemIndex = $scope.cartItems.indexOf(item);
+
+      $scope.cartItems[itemIndex].totalprice = $scope.calculateItemTotal(item);
     };
 
     // pushes item into the cartItems array
     $scope.addToCart = function(item, $index) {
       $scope.cartItems.push(item);
-      $scope.updateItemPrice(item, $index);
+      $scope.updateItemPrice(item);
     };
 
     // removes item from cartItems array

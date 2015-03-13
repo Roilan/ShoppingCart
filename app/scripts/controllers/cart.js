@@ -53,10 +53,15 @@ angular.module('shoppingCartApp')
       return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2);
     };
 
+    // updates item price in cart
+    $scope.updateItemPrice = function(item, $index) {
+      $scope.cartItems[$index].totalprice = $scope.calculateItemTotal(item);
+    };
+
     // pushes item into the cartItems array
     $scope.addToCart = function(item, $index) {
       $scope.cartItems.push(item);
-      $scope.cartItems[$index].totalprice = $scope.calculateItemTotal(item);
+      $scope.updateItemPrice(item, $index);
     };
 
     // removes item from cartItems array
@@ -66,7 +71,7 @@ angular.module('shoppingCartApp')
 
     // updates items price in cart
     $scope.updateCartItem = function(item, $index) {
-      $scope.cartItems[$index].totalprice = $scope.calculateItemTotal(item);
+      $scope.updateItemPrice(item, $index);
     };
 
   });

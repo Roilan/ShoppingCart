@@ -64,5 +64,9 @@ angular.module('shoppingCartApp')
       $scope.cartItems.splice($index, 1);
     };
 
+    // updates items price in cart
+    $scope.updateCartItem = function(item, $index) {
+      $scope.cartItems[$index].totalprice = $scope.calculateItemTotal(item);
+    };
 
   });

@@ -160,12 +160,12 @@ body {
   font-size: 14px;
   width: 70px;
   margin-top: -2px;
+  margin-left: 5px;
 }
 
 .btn-cart-remove {
   @extend .btn-cart;
   background-color: $bs-red;
-  margin-left: 5px;
 
   &:hover {
     opacity: 0.8;

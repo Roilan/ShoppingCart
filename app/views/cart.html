@@ -15,11 +15,29 @@
       </li>
 
       <li class="row list-inline items-row" ng-repeat="item in items">
-        <input type="number" class="itemAmt" value="{{item.amount}}" ng-model="item.amount"/>
-        <span class="itemName">{{item.name}}</span>
-        <button ng-click="updateCartItem(item, $index)" class="btn btn-primary btn-sm btn-cart">Update</button>
-        <button ng-click="addToCart(item, $index)" class="btn btn-primary btn-sm btn-cart">Add</button>
-        <span class="itemPrice">${{item.price}}</span>
+
+        <input type="number"
+               class="itemAmt"
+               value="{{item.amount}}"
+               ng-model="item.amount"/>
+
+        <span class="itemName">
+          {{item.name}}
+        </span>
+
+        <button class="btn btn-primary btn-sm btn-cart"
+                ng-click="updateCartItem(item, $index)">
+          Update
+        </button>
+
+        <button class="btn btn-primary btn-sm btn-cart"
+                ng-click="addToCart(item, $index)">
+          Add
+        </button>
+
+        <span class="itemPrice">
+          ${{item.price}}
+        </span>
       </li>
     </ul>
 
@@ -34,10 +52,22 @@
     <ul>
 
       <li class="row list-inline items-row" ng-repeat="cartItem in cartItems">
-        <span class="itemAmt">{{cartItem.amount}}</span>
-        <span class="itemName">{{cartItem.name}}</span>
-        <button class="btn btn-danger btn-sm btn-cart-remove" ng-click="removeCartItem($index)">Remove</button>
-        <span class="itemPrice">${{cartItem.totalprice}}</span>
+        <span class="itemAmt">
+          {{cartItem.amount}}
+        </span>
+
+        <span class="itemName">
+          {{cartItem.name}}
+        </span>
+
+        <button class="btn btn-danger btn-sm btn-cart-remove"
+                ng-click="removeCartItem($index)">
+          Remove
+        </button>
+
+        <span class="itemPrice">
+          ${{cartItem.totalprice}}
+        </span>
       </li>
     </ul>
 
@@ -46,7 +76,11 @@
 
 <div class="row">
   <div class="col-sm-12 text-center">
-    <button class="btn btn-danger" ng-click="clearCartItems()">Clear Cart</button>
+    <button class="btn btn-danger"
+            ng-click="clearCartItems()">
+      Clear Cart
+    </button>
+    
     <!--<button class="btn btn-danger" ng-click="log()">Log</button>-->
   </div>
 </div>

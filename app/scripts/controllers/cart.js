@@ -64,7 +64,7 @@ angular.module('shoppingCartApp')
     };
 
     // pushes item into the cartItems array
-    $scope.addToCart = function(item, $index) {
+    $scope.addToCart = function(item) {
       $scope.cartItems.push(item);
       $scope.updateItemPrice(item);
     };
@@ -75,8 +75,8 @@ angular.module('shoppingCartApp')
     };
 
     // updates items price in cart
-    $scope.updateCartItem = function(item, $index) {
-      $scope.updateItemPrice(item, $index);
+    $scope.updateCartItem = function(item) {
+      $scope.updateItemPrice(item);
     };
 
   });

@@ -26,13 +26,15 @@
         </span>
 
         <button class="btn btn-primary btn-sm btn-cart"
-                ng-click="updateCartItem(item, $index)">
-          Update
+                ng-click="addToCart(item);isItemAdded = !isItemAdded"
+                ng-show="isItemAdded">
+          Add
         </button>
 
         <button class="btn btn-primary btn-sm btn-cart"
-                ng-click="addToCart(item, $index)">
-          Add
+                ng-click="updateCartItem(item)"
+                ng-show="!isItemAdded">
+          Update
         </button>
 
         <span class="itemPrice">
@@ -78,9 +80,9 @@
   <div class="col-sm-12 text-center">
     <button class="btn btn-danger"
             ng-click="clearCartItems()">
-      Clear Cart
+      Clear Car
     </button>
-    
+
     <!--<button class="btn btn-danger" ng-click="log()">Log</button>-->
   </div>
 </div>

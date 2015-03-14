@@ -27,13 +27,13 @@
 
         <button class="btn btn-primary btn-sm btn-cart"
                 ng-click="addToCart(item);isItemAdded = !isItemAdded"
-                ng-show="isItemAdded">
+                ng-show="!isItemAdded">
           Add
         </button>
 
         <button class="btn btn-primary btn-sm btn-cart"
                 ng-click="updateCartItem(item)"
-                ng-show="!isItemAdded">
+                ng-hide="!isItemAdded">
           Update
         </button>
 

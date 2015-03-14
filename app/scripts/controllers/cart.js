@@ -53,14 +53,16 @@ angular.module('shoppingCartApp')
       return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2);
     };
 
+    // using $index caused an error if items were added out of order
+    // when price was removed and re-added/updated
+    // to avoid this, grabs the index of the current item
+    $scope.itemIndex = function(item) {
+      return $scope.cartItems.indexOf(item);
+    };
+
     // updates item price in cart
     $scope.updateItemPrice = function(item) {
-      // using $index caused an error if items were added out of order
-      // when price was removed and re-added/updated
-      // to avoid this, grabs the index of the current item
-      var itemIndex = $scope.cartItems.indexOf(item);
-
-      $scope.cartItems[itemIndex].totalprice = $scope.calculateItemTotal(item);
+      $scope.cartItems[$scope.itemIndex(item)].totalprice = $scope.calculateItemTotal(item);
     };
 
     // pushes item into the cartItems array

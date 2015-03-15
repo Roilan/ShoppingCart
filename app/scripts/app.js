@@ -9,7 +9,11 @@
  * Main module of the application.
  */
 angular
-  .module('shoppingCartApp', ['ui.router'])
+  .module('shoppingCartApp', [
+    'ui.router',
+    'shoppingCartApp.controllers',
+    'firebase'
+  ])
 
   .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 

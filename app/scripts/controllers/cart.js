@@ -50,37 +50,25 @@ angular.module('shoppingCartApp.controllers', [])
       $scope.cartItems = [];
     };
 
-    // calculates item total
-    $scope.calculateItemTotal = function(item) {
-      var totalPrice = item.amount * item.price;
-      return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2);
-    };
-
-    // using $index caused an error if items were added out of order
-    // when price was removed and re-added/updated
-    // to avoid this, grabs the index of the current item
-    $scope.itemIndex = function(item) {
-      return $scope.cartItems.indexOf(item);
-    };
-
-    // updates item price in cart
-    $scope.updateItemPrice = function(item) {
-      $scope.cartItems[$scope.itemIndex(item)].totalprice = $scope.calculateItemTotal(item);
-    };
-
     // updates items price in cart
-    $scope.updateCartItem = function(item) {
-      $scope.updateItemPrice(item);
+    $scope.updateItemPrice = function($index) {
+      var amt = $scope.items[$index].amount;
+      var price = $scope.items[$index].price;
+      var totalPrice = amt * price;
+
+      return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2)
     };
 
     // firebase methods
 
-    $scope.addItemToCart = function(item, $index) {
+    $scope.addItemToCart = function($index) {
+      var totalPrice = $scope.updateItemPrice($index);
+
       $scope.cartItems.$add({
         name: $scope.items[$index].name,
         amount: $scope.items[$index].amount,
         price: $scope.items[$index].price,
-        totalprice: $scope.items[$index].totalprice
+        totalprice: totalPrice
       });
     };
 

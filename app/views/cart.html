@@ -25,17 +25,17 @@
           {{item.name}}
         </span>
 
-        <button class="btn btn-primary btn-sm btn-cart"
-                ng-click="addToCart(item);isItemAdded = !isItemAdded"
-                ng-show="!isItemAdded">
-          Add
-        </button>
+        <form ng-submit="addItemToCart(item, $index)">
+          <button class="btn btn-primary btn-sm btn-cart">
+            Add
+          </button>
+        </form>
 
-        <button class="btn btn-primary btn-sm btn-cart"
-                ng-click="updateCartItem(item)"
-                ng-hide="!isItemAdded">
-          Update
-        </button>
+        <!--<button class="btn btn-primary btn-sm btn-cart"-->
+                <!--ng-click="updateCartItem(item)"-->
+                <!--ng-hide="!isItemAdded">-->
+          <!--Update-->
+        <!--</button>-->
 
         <span class="itemPrice">
           ${{item.price}}
@@ -53,22 +53,22 @@
 
     <ul>
 
-      <li class="row list-inline items-row" ng-repeat="cartItem in cartItems">
+      <li class="row list-inline items-row" ng-repeat="item in cartItems">
         <span class="itemAmt">
-          {{cartItem.amount}}
+          {{item.amount}}
         </span>
 
         <span class="itemName">
-          {{cartItem.name}}
+          {{item.name}}
         </span>
 
         <button class="btn btn-danger btn-sm btn-cart-remove"
-                ng-click="removeCartItem($index)">
+                ng-click="cartItems.$remove(item)">
           Remove
         </button>
 
         <span class="itemPrice">
-          ${{cartItem.totalprice}}
+          ${{item.totalprice}}
         </span>
       </li>
     </ul>
@@ -83,6 +83,6 @@
       Clear Cart
     </button>
 
-    <!--<button class="btn btn-danger" ng-click="log()">Log</button>-->
+    <button class="btn btn-danger" ng-click="log()">Log</button>
   </div>
 </div>

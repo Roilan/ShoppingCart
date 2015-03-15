@@ -7,8 +7,11 @@
  * # MainCtrl
  * Controller of the shoppingCartApp
  */
-angular.module('shoppingCartApp')
-  .controller('ShoppingCartController', function ($scope) {
+angular.module('shoppingCartApp.controllers', [])
+  .controller('ShoppingCartController', function ($scope, $firebaseArray) {
+    var firebaseRef = new Firebase('https://angularcart.firebaseio.com/cart');
+    $scope.cartItems = $firebaseArray(firebaseRef);
+
     // log
     $scope.log = function() {
       console.log($scope.cartItems);
@@ -21,26 +24,26 @@ angular.module('shoppingCartApp')
     $scope.items = [
       {
         name: 'Food',
-        amount: 0,
         price: 9.99,
+        amount: 0,
         totalprice: 0
       },
       {
         name: 'Accessories',
-        amount: 0,
         price: 10.99,
+        amount: 0,
         totalprice: 0
       },
       {
         name: 'Care',
-        amount: 0,
         price: 11.99,
+        amount: 0,
         totalprice: 0
       }
     ];
 
     // cart items
-    $scope.cartItems = [];
+    //$scope.cartItems = [];
 
     // clear cart items
     $scope.clearCartItems = function() {
@@ -65,20 +68,20 @@ angular.module('shoppingCartApp')
       $scope.cartItems[$scope.itemIndex(item)].totalprice = $scope.calculateItemTotal(item);
     };
 
-    // pushes item into the cartItems array
-    $scope.addToCart = function(item) {
-      $scope.cartItems.push(item);
-      $scope.updateItemPrice(item);
-    };
-
-    // removes item from cartItems array
-    $scope.removeCartItem = function($index) {
-      $scope.cartItems.splice($index, 1);
-    };
-
     // updates items price in cart
     $scope.updateCartItem = function(item) {
       $scope.updateItemPrice(item);
+    };
+
+    // firebase methods
+
+    $scope.addItemToCart = function(item, $index) {
+      $scope.cartItems.$add({
+        name: $scope.items[$index].name,
+        amount: $scope.items[$index].amount,
+        price: $scope.items[$index].price,
+        totalprice: $scope.items[$index].totalprice
+      });
     };
 
   });

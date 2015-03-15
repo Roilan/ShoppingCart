@@ -56,7 +56,7 @@ angular.module('shoppingCartApp.controllers', [])
       var price = $scope.items[$index].price;
       var totalPrice = amt * price;
 
-      return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2)
+      return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2);
     };
 
     // firebase methods
@@ -70,6 +70,25 @@ angular.module('shoppingCartApp.controllers', [])
         price: $scope.items[$index].price,
         totalprice: totalPrice
       });
+    };
+
+    $scope.updateCartItem = function(item) {
+      // window removes jshint error
+      var msg = window.prompt('New Item Quantity');
+
+      // takes value returned from prompt and calculates total price
+      var updateItemPrice = function() {
+        item.amount = msg;
+        var totalPrice = item.amount * item.price;
+
+        return parseFloat(Math.round(totalPrice * 100) / 100).toFixed(2);
+      };
+
+      // updates item's total price and updates firebase
+      if(msg) {
+        item.totalprice = updateItemPrice();
+        $scope.cartItems.$save(item);
+      }
     };
 
   });

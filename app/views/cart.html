@@ -15,31 +15,24 @@
       </li>
 
       <li class="row list-inline items-row" ng-repeat="item in items">
-
-        <input type="number"
-               class="itemAmt"
-               value="{{item.amount}}"
-               ng-model="item.amount"/>
-
-        <span class="itemName">
-          {{item.name}}
-        </span>
-
         <form ng-submit="addItemToCart($index)">
+          <input type="number"
+                 class="itemAmt"
+                 value="{{item.amount}}"
+                 ng-model="item.amount"/>
+
+          <span class="itemName">
+            {{item.name}}
+          </span>
+
           <button class="btn btn-primary btn-sm btn-cart">
             Add
           </button>
+
+          <span class="itemPrice">
+            ${{item.price}}
+          </span>
         </form>
-
-        <!--<button class="btn btn-primary btn-sm btn-cart"-->
-                <!--ng-click="updateCartItem(item)"-->
-                <!--ng-hide="!isItemAdded">-->
-          <!--Update-->
-        <!--</button>-->
-
-        <span class="itemPrice">
-          ${{item.price}}
-        </span>
       </li>
     </ul>
 
@@ -65,6 +58,11 @@
         <button class="btn btn-danger btn-sm btn-cart-remove"
                 ng-click="cartItems.$remove(item)">
           Remove
+        </button>
+
+        <button class="btn btn-primary btn-sm btn-cart"
+                ng-click="updateCartItem(item)">
+          Update
         </button>
 
         <span class="itemPrice">
